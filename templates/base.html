@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	{% include "includes/head.html" %}
+	<title>{% block ptitle %} {% endblock ptitle %}</title>
+	{% block upper_static %} {% endblock upper_static %}
+</head>
+<body>
+	<header class="px-5">
+		<a href=""><div class="logo">
+			<span>&lt/starr:{% block app_name %} {% endblock app_name %}&gt</span>
+		</div></a>
+		<div class="links text-right text-white">
+			<i class="icon-user"></i><span class="px-1 username">{{ request.user|title }}:</span>
+			<a href="{% url 'logout' %}" class="text-white">Account</a><span class="px-1">/</span>
+			<a href="{% url 'logout' %}" class="text-white">Logout</a>
+		</div>
+	</header>
+	{% block content %} {% endblock content %}
+
+	{% include "includes/scripts.html" %}
+	{% block lower_static %} {% endblock lower_static %}
+</body>
+</html>

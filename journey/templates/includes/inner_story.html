@@ -1,0 +1,4 @@
+<p>{{ object.story|safe  }}</p>
+<a class="btn-xs btn-dark text-white btn px-2" onclick="deleteStory({{ object.id }})">Delete</a>
+<a class="btn-xs btn-dark text-white btn px-2" onclick="editStory({{ object.id }})">Edit</a>
+<cite class="float-right">{{ object.created_at|date:"d M, Y H : i" }}</cite>

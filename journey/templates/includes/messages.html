@@ -1,0 +1,12 @@
+{% if message is not None %}
+	<div class="alert alert-primary bg-white text-primary font-weight-bold border-primary alert-dismissible">
+  	<a href="#" class="close p-2" data-dismiss="alert" aria-label="close">&times;</a>
+		{{ message }}
+	</div>
+{% endif %}
+{% if error is not None %}
+	<div class="alert alert-danger bg-white text-danger font-weight-bold border-danger  alert-dismissible">
+  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		{{ error }}
+	</div>
+{% endif %}

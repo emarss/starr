@@ -1,0 +1,36 @@
+body, html{
+	min-width: 1200px;
+	background-color: #efefef !important;
+	overflow-x: hidden;
+}
+header{
+	width: 100%;
+	position: fixed;
+	background-color: #417690;
+	padding: 0;
+	z-index: 10000;
+}
+.logo{
+	width: 200px;
+	float: left;
+
+}
+.logo span{
+	font-size: 30px;
+	color: #fff;
+	font-weight: bolder;
+	font-family: monospace;
+}
+.links{
+	width: calc(100% - 200px);
+	float: left;
+	padding: 13px 0;
+	font-size: 14px;
+}
+.content{
+	padding-top: 80px;
+	position: relative;
+}
+.username{
+	font-weight: 600 !important;
+}

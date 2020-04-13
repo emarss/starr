@@ -1,0 +1,10 @@
+<header class="px-5">
+	<a href=""><div class="logo">
+		<span>&lt/starr:journey&gt</span>
+	</div></a>
+	<div class="links text-right text-white">
+		<i class="icon-user"></i><span class="px-1 username">{{ request.user|title }}:</span>
+		<a href="{% url 'logout' %}" class="text-white">Account</a><span class="px-1">/</span>
+		<a href="{% url 'logout' %}" class="text-white">Logout</a>
+	</div>
+</header>
