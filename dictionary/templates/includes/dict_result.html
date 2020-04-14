@@ -1,0 +1,19 @@
+{% if result == 'found' %}
+	<h5 class="h5">Results for <i>{{ word }}</i>.</h5>
+	<ul class="list">
+		{% for var in response %}
+			<li>{{ var }}</li>
+		{% endfor %}
+	</ul>
+{% elif result == 'close_matches' %}
+	<h5 class="h5">No results found for <i>{{ word }}</i>.</h5>
+	<p>Did you mean <ul>
+		{% for var in response %}
+			<li><a class="text-primary suggested font-weight-bold" onclick="findSuggested('{{ var }}')" class="font-italic">{{ var }}</a></li>
+		{% endfor %}
+	</ul></p>
+{% else %}
+	<h5 class="h5">No results found for <i>{{ word }}</i>.</h5>
+	<p>{{ response  }}</p>
+{% endif %}
+	

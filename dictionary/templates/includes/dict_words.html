@@ -1,0 +1,3 @@
+{% for var in response %}
+	<li><a class="text-primary suggested font-weight-bold" onclick="findSuggested('{{ var }}')" class="font-italic">{{ var|safe }}</a></li>
+{% endfor %}

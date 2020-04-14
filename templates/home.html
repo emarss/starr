@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block app_name %}home{% endblock app_name %}
+{% block ptitle %}Starr - Home {% endblock ptitle %}
+
+{% block content %}
+	<div class="content">
+		<div class="row">
+			<div class="col-8 offset-2">
+				<div class="row">
+					<div id="journey" class="col-3 star-product">
+						<div class="star-product-head">
+							<span>&ltstarr:journey/&gt</span>
+						</div>
+						<div class="star-product-body">
+							<i class="iconmoon icon-road"></i>
+						</div>
+					</div>
+					<div id="dictionary" class="col-3 star-product">
+						<div class="star-product-head">
+							<span>&ltstarr:dictionary/&gt</span>
+						</div>
+						<div class="star-product-body">
+							<i class="iconmoon icon-search"></i>
+						</div>
+					</div>
+					<div id="bible" class="col-3 star-product">
+						<div class="star-product-head">
+							<span>&ltstarr:bible/&gt</span>
+						</div>
+						<div class="star-product-body">
+							<i class="iconmoon icon-book"></i>
+						</div>
+					</div>
+					<div id="todo" class="col-3 star-product">
+						<div class="star-product-head">
+							<span>&ltstarr:todo/&gt</span>
+						</div>
+						<div class="star-product-body">
+							<i class="iconmoon icon-today"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+{% block lower_static %}
+	<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript">
+		$(".star-product-body").click(function(){
+		  location.href = "/" + $(this).parent().attr('id');
+		});
+	</script>	
+{% endblock lower_static %}

@@ -1,0 +1,109 @@
+/**********************************************************/
+/*Home*/
+.star-product-head{
+	background-color: #417690;
+	height: 30px;
+	padding-top: 2px;
+	text-align: center;
+}
+.star-product-body{
+	border:1px solid #417690;
+	color: #417690;
+	text-align: center;
+	height: 110px;
+	padding-top: 15px;
+}
+.star-product-body i{
+	font-size: 70px;
+}
+.star-product-head span{
+	color: #fff;
+	font-size: 16px;
+	font-family: monospace;
+}
+.star-product:hover i{
+	font-size: 75px;
+	transition: 0.1s;
+}
+.star-product:hover .star-product-body{
+	box-shadow: 0px 4px 4px grey;
+	transition: 0.1s;
+	cursor: pointer;
+}
+
+/**********************************************************/
+/*Journey*/
+.star-journey-outer{
+	padding: 0px 80px;
+}
+.star-journey{
+}
+.star-head p{
+	font-weight: 400 !important;
+	font-size: 15px;
+}
+textarea{
+	border: 1px solid #999;
+	border-radius: 1px !important;
+	resize: none !important;
+	height: 100px;
+	box-shadow: 1px 1px #417690;
+	font-size: 13px;
+}
+.star-body p{
+	font-size: 13px;
+}
+.journey-story cite{
+	font-size: 12px;
+}
+.journey-story .btn-link{
+	font-size: 12px;
+}
+.alert{
+	font-size: 13px;
+}
+::-webkit-scrollbar-thumb{
+	background-color: #999;
+}
+::-webkit-scrollbar-thumb:hover{
+	background-color: #000;
+	cursor: pointer !important;
+}
+::-webkit-scrollbar-track{
+	background-color: #efefef;
+	border-radius: 2px;
+}
+::-webkit-scrollbar{
+	width: 5px;
+}
+
+.btn-xs{
+  padding: 0.27rem 0.05rem !important;
+  font-size: 13px !important;
+}
+
+
+/******************************************************/
+/*Dictionary*/
+.star-dict-outer{
+	padding: 0px 80px;
+}
+.suggested{
+	cursor: pointer;
+}
+.star-dict-panel{
+	margin-left: -60px !important;
+	margin-right: 60px !important;
+	height: 40px;
+}
+.star-dict-panel-header{
+	height: 40px;
+}
+.star-dict-panel div{
+	background-color: #fff;
+	font-size: 18px;
+}
+.star-dict-panel ul{
+	list-style-type: thai;
+	font-family: cursive;
+}

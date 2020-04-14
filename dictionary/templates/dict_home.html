@@ -7,50 +7,50 @@
 
 {% block content %}
 	<div class="content">
-		<div class="row star-journey-outer">
-			<div class="star-journey star-journey-messages col-6 offset-3 rounded p-0">
-				{% include 'includes/messages.html' %}
-			</div>
-			<div class="star-journey col-6 offset-3 bg-white p-3 rounded">
-				<div class="sta-head">
-					<p class="mb-4 px-1">
-						Hey {{ request.user }}! How are you doing today?
-					</p>
+		<div class="row star-dict-outer">
+			<div class="star-dict star-dict-panel col-3 rounded p-0">
+				<div class="star-dict-panel-header col-12 p-0">
+					<div class="text-white p-1 px-3 rounded-top col-12 bg-primary">History</div>
 				</div>
-				<div class="sta-body">
-					<form class="star-form mb-5" id="story_form" method="POST" action="{% url 'journey:home' %}">
-						{% csrf_token %}
-						{# {{ form.user }} #}
-						<div class="form-group">
-							{{ form.story }}
-						</div>
-						<div class="form-group row">
-							<div class="star-journey-sucess col-10"></div>
-							<div class="col-2">					
-								<input type="submit" name="Submit" class="btn btn-primary btn-sm">
+				<div class="star-dict-panel-body py-2">
+					<div class="col-12 star-dict-history">
+						<ul class="list">
+							{% for var in history %}
+								<li><a class="text-primary suggested font-weight-bold" onclick="findSuggested('{{ var }}')" class="font-italic">{{ var }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="row">
+					<div class="star-dict star-dict-messages col-12 rounded p-0">
+						{% include 'includes/messages.html' %}
+					</div>
+					<div class="star-dict col-12 bg-white p-3 rounded">
+						<div class="sta-body">
+							<form class="star-form mb-2" id="dict_form">
+								{% csrf_token %}
+								<div class="form-group ">
+									{{ form.word }}
+									<div class=" text-right pt-1">					
+										<input type="submit" name="Search" class="btn btn-primary btn-sm">
+										<a onclick="resetDict()" class="text-white btn btn-info btn-sm ml-1">Clear</a>
+									</div>
+								</div>
+							</form><hr>
+							<div class="dict-result">
+								<div id="result">
+									<p>So write a lot of code, and make sure you’re getting code reviews from quality programmers.</p>
+								</div>
 							</div>
 						</div>
-					</form>
-					
-					<div class="journey-story-head">
-						<h5 class="h5">Stories.</h5>
-					</div><hr>
-					<div class="journey-stories">
-						{% for object in objects %}
-							{% include 'includes/story.html' %}
-						{% empty %}
-							<div class="journey-story">
-								<p>Remember, you haven't told me any stories yet.</p>
-							</div>
-						{% endfor %}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	{% include 'includes/edit_story.html' %}
-	{% include 'includes/delete_story.html' %}
 {% endblock content %}
 
 {% block lower_static %}

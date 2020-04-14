@@ -8,9 +8,16 @@
 </head>
 <body>
 	<header class="px-5">
-		<a href=""><div class="logo">
-			<span>&lt/starr:{% block app_name %} {% endblock app_name %}&gt</span>
-		</div></a>
+		<div class="logo dropdown">
+			<a href=""><span>&lt/starr:{% block app_name %} {% endblock app_name %}&gt</span></a>
+			<a href="" class="text-white ml-2" data-toggle="dropdown"><i class="iconmoon icon-caret-square-o-down"></i></a>
+			  <ul class="dropdown-menu p-0">
+			    <li><a href="{% url 'journey:home' %}">&ltstarr:journey&gt</a></li>
+			    <li><a href="{% url 'dictionary:home' %}">&ltstarr:dictionary&gt</a></li>
+			    <li><a href="#">&ltstarr:bible&gt</a></li>
+			    <li><a href="#">&ltstarr:todo&gt</a></li>
+			  </ul>
+		</div>
 		<div class="links text-right text-white">
 			<i class="icon-user"></i><span class="px-1 username">{{ request.user|title }}:</span>
 			<a href="{% url 'logout' %}" class="text-white">Account</a><span class="px-1">/</span>

@@ -23,7 +23,7 @@ def loginUser(request):
 			)
 	if user is not None:
 		login(request, user)
-		return redirect(reverse("journey:home"))
+		return redirect(reverse("home:home"))
 	else:
 		request.session['error'] = "Please enter the correct username and password for yout account. Note that both fields are case-sensitive."
 		return redirect('login')
@@ -32,4 +32,3 @@ def logoutUser(request):
 	logout(request)
 	request.session['message'] = "You are logged out"
 	return redirect('login')
-

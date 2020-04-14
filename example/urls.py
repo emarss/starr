@@ -26,6 +26,7 @@ urlpatterns = [
     path('login/', views.loginForm, name='login'),
 	path('authenticate/', views.loginUser, name='authenticate'),
 		
+    path('home/', include('home.urls')),
     path('journey/', include('journey.urls')),
 	path('dictionary/', include('dictionary.urls')),
     path('admin/', admin.site.urls),

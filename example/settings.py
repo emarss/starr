@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # Own Apps
     'journey',
-    'dictionary'
+    'dictionary',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,6 @@ STATIC_URL = '/static/'
 
 # Login URL
 LOGIN_URL = '/login/'
+
+# Media ROOT
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

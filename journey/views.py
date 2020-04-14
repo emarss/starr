@@ -97,8 +97,10 @@ def delete_story(request, id):
 	obj = Journey.objects.get(pk=id)
 	if(request.user == obj.user):
 		obj.delete()
+		context['result']  = "success"
 		request.session['message'] = "A story was successfully deleted."
 	else:
+		context['result']  = "fail"
 		request.session['error'] = "A story was successfully deleted."
 
 	return redirect("journey:home")
