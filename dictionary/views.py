@@ -18,7 +18,7 @@ def home(request, *args, **kwargs):
 		context['error'] = request.session['error']
 		del request.session["error"]
 
-	context['form'] = SearchForm(request.POST)
+	context['form'] = SearchForm()
 	context['history'] = Dictionary.objects.filter(user=request.user).order_by("-id")[:20]
 
 	return render(request, 'dict_home.html', context)

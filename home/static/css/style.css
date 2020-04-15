@@ -63,14 +63,14 @@ textarea{
 	font-size: 13px;
 }
 ::-webkit-scrollbar-thumb{
-	background-color: #999;
+	background-color: #417690;
 }
 ::-webkit-scrollbar-thumb:hover{
 	background-color: #000;
 	cursor: pointer !important;
 }
 ::-webkit-scrollbar-track{
-	background-color: #efefef;
+	background-color: #999;
 	border-radius: 2px;
 }
 ::-webkit-scrollbar{
@@ -78,7 +78,7 @@ textarea{
 }
 
 .btn-xs{
-  padding: 0.27rem 0.05rem !important;
+  padding: 3px 7px !important;
   font-size: 13px !important;
 }
 
@@ -101,9 +101,147 @@ textarea{
 }
 .star-dict-panel div{
 	background-color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 }
 .star-dict-panel ul{
 	list-style-type: thai;
-	font-family: cursive;
+	font-family: monospace;
+	letter-spacing: -1px;
+}
+
+/******************************************************/
+/*Bible*/
+.star-bible-outer{
+	padding: 0px 15px;
+	margin: 0 !important;
+}
+.bible-book{
+	cursor: pointer;
+}
+.star-bible-panel{
+	height: 40px;
+}
+.star-bible-panel-header{
+}
+.star-bible-panel div{
+	background-color: #fff;
+	font-size: 15px;
+}
+.star-bible-panel-body{
+	height: calc(100vh - 125px) !important;
+	overflow-y: auto;
+}
+.star-bible-books{}
+.star-bible-panel ul{
+	list-style-type: circle;
+	font-family: inherit;
+	letter-spacing: -1px;
+	margin: 0;
+}
+.star-bible-panel ul li{
+	margin: 5px 0px;
+	width: 100%;
+}
+.star-bible-panel ul li.active a, .star-bible-panel ul li a:hover{
+	font-weight: 700;
+	font-size: 15px;
+	transition: 0.3s;
+}
+.bible-book{
+	font-weight: 600;
+}
+.star-form label{
+	padding-top: 10px
+}
+.book-form-group{
+	width: 35%;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+.chapter-form-group{
+	width: 25%;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+.verse-form-group{
+	width: 25%;
+	padding-left: 10px;
+	padding-right: 2px;
+}
+.submit-form-group{
+	width: 6%;
+	padding-left: 10px;
+	padding-right: 2px;
+}
+.search-form-group{
+	width: 100%;
+	padding-left: 26px;
+	padding-right: 0px;
+}
+.star-form .form-control{
+	height: unset !important;
+	border-radius: 2px;
+}
+.book-form-group .form-control{
+	width: calc(100% - 40px);
+	float: left;
+	padding: 3px 10px;
+	margin-top: 4px;
+}
+.chapter-form-group .form-control{
+	width: calc(100% - 60px);
+	float: left;
+	padding: 3px 10px;
+	margin-top: 4px;
+}
+.verse-form-group .form-control{
+	width: calc(100% - 47px);
+	float: left;
+	padding: 3px 10px;
+	margin-top: 4px;
+}
+.search-form-group .form-control{
+	width: calc(100% - 78px);
+	float: left;
+	padding: 3px 10px;
+	margin-top: 4px;
+}
+.book-form-group label{
+	width: 40px;
+	font-weight: 600;
+	float: left;
+}
+.chapter-form-group label{
+	width: 60px;
+	font-weight: 600;
+	float: left;
+}
+.verse-form-group label{
+	width: 45px;
+	font-weight: 600;
+	float: left;
+}
+.search-form-group .btn{
+	width: 74px;
+	float: left;
+	margin: 4px;
+	margin-right: 0px;
+}
+.submit-form-group .btn{
+	width: 50px;
+	float: left;
+	margin: 4px;
+	margin-right: 0px;
+}
+.star-bible-contents{
+	height: calc(100vh - 208px) !important;
+	overflow-y: auto;
+}
+#bible_form{
+	width: 60% !important;
+	float: left !important;
+}
+#bible_search_form{
+	width: 45% !important;
+	float: left !important;
 }

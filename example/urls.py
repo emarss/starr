@@ -28,6 +28,7 @@ urlpatterns = [
 		
     path('home/', include('home.urls')),
     path('journey/', include('journey.urls')),
-	path('dictionary/', include('dictionary.urls')),
+    path('dictionary/', include('dictionary.urls')),
+	path('bible/', include('bible.urls')),
     path('admin/', admin.site.urls),
 ]

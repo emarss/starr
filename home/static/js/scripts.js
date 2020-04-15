@@ -128,3 +128,31 @@ function findSuggested(word) {
     $("#id_word").val(word);
     $("#dict_form").submit()
 }
+
+
+/*******************************************************/
+// BIBLE
+$("#bible_form").submit(function(event) {
+    $.ajax({
+        url: "/bible/chapter/",
+        type: "post",
+        data: $("#bible_form").serialize(),
+        beforeSend: function() {
+        },
+        success: function(e) {
+            if( e['result'] == 'success'){
+                $(".star-bible-contents").html(e['chapter']);
+                $("#id_bible_chapter").attr('max',e["chapters_count"]);
+                $("#id_bible_verse").attr('max',e["verses_count"]);
+                console.log(e)
+            }else{
+                alert(e['html'])
+            }
+        },
+        error: function(e) {
+            alert("An unknown error has occured. Please refresh this page and try again")
+        }
+    });
+
+    return false;
+});

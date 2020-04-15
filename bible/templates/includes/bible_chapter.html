@@ -1,0 +1,4 @@
+{% load dict_value %}
+{% for key in chapter.keys %}
+	<p><b>[{{ key }}]</b> <span>{{ chapter|get_value:key }}</span></p>
+{% endfor %}

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # Own Apps
     'journey',
     'dictionary',
-    'home'
+    'home',
+    'bible'
 ]
 
 MIDDLEWARE = [
