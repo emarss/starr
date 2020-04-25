@@ -1,0 +1,13 @@
+{% for entry in comments %}
+	<li class="mb-1">
+		<span id="comment_{{ entry.id }}">{{ entry.comment }}</span>
+		<a onclick="deleteComment({{ entry.id }})" class="btn text-white btn-dark float-right btn-xs">
+			<i class="iconmoon icon-trash"></i>
+		</a>
+		<a onclick="editComment({{ entry.id }})" id="edit_comment_{{ entry.id }}" class="btn text-white btn-secondary mr-1 float-right btn-xs">
+			<i class="iconmoon icon-pencil"></i>
+		</a>
+	</li>
+{% empty %}
+	<li>No comments yet</li>
+{% endfor %}

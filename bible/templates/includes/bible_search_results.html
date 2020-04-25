@@ -1,0 +1,7 @@
+{% load dict_value %}
+<b>Search Results for <i>{{ search_key }}</i></b><hr>
+{% for key in results.keys %}
+	<p onclick="viewResult('{{ key }}')"><b>[{{ key }}]</b> <span>{{ results|get_value:key }}</span></p>
+{% empty %}
+	<div class="text-center col-12 mt-3">No results found. <i></i></div>
+{% endfor %}

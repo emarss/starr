@@ -1,4 +1,10 @@
 {% load dict_value %}
 {% for key in chapter.keys %}
-	<p><b>[{{ key }}]</b> <span>{{ chapter|get_value:key }}</span></p>
+	<p onclick="viewVerse('{{ key }}')" id="verse-{{ key|slugify }}">
+		<b>[{{ key }}]</b>
+		<span>{{ chapter|get_value:key }}</span>
+		<a onclick="markVerse('{{ key }}')" title="Bookmark verse" class="btn text-white btn-dark d-none btn-xs">
+			<i class="iconmoon icon-bookmark-o"></i>
+		</a>
+	</p>
 {% endfor %}

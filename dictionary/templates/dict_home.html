@@ -24,9 +24,6 @@
 			</div>
 			<div class="col-6">
 				<div class="row">
-					<div class="star-dict star-dict-messages col-12 rounded p-0">
-						{% include 'includes/messages.html' %}
-					</div>
 					<div class="star-dict col-12 bg-white p-3 rounded">
 						<div class="sta-body">
 							<form class="star-form mb-2" id="dict_form">
@@ -51,9 +48,9 @@
 		</div>
 	</div>
 
+	{% include 'includes/messages.html' %}
 {% endblock content %}
 
 {% block lower_static %}
-	<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/dictionary.js' %}"></script>
 {% endblock lower_static %}

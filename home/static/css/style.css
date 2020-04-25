@@ -19,6 +19,7 @@
 .star-product-head span{
 	color: #fff;
 	font-size: 16px;
+	letter-spacing: -1px;
 	font-family: monospace;
 }
 .star-product:hover i{
@@ -42,12 +43,12 @@
 	font-weight: 400 !important;
 	font-size: 15px;
 }
-textarea{
+.star-form .ck-content {
+	height: 100px !important;
 	border: 1px solid #999;
 	border-radius: 1px !important;
 	resize: none !important;
-	height: 100px;
-	box-shadow: 1px 1px #417690;
+	box-shadow: 1px 1px #efefef;
 	font-size: 13px;
 }
 .star-body p{
@@ -78,7 +79,7 @@ textarea{
 }
 
 .btn-xs{
-  padding: 3px 7px !important;
+  padding: 3px 7px 4px !important;
   font-size: 13px !important;
 }
 
@@ -115,9 +116,6 @@ textarea{
 	padding: 0px 15px;
 	margin: 0 !important;
 }
-.bible-book{
-	cursor: pointer;
-}
 .star-bible-panel{
 	height: 40px;
 }
@@ -131,8 +129,7 @@ textarea{
 	height: calc(100vh - 125px) !important;
 	overflow-y: auto;
 }
-.star-bible-books{}
-.star-bible-panel ul{
+.star-bible-panel ul,.bible-util-tab ul {
 	list-style-type: circle;
 	font-family: inherit;
 	letter-spacing: -1px;
@@ -149,6 +146,7 @@ textarea{
 }
 .bible-book{
 	font-weight: 600;
+	cursor: pointer;
 }
 .star-form label{
 	padding-top: 10px
@@ -233,7 +231,7 @@ textarea{
 	margin: 4px;
 	margin-right: 0px;
 }
-.star-bible-contents{
+.star-bible-contents, .star-bible-utils{
 	height: calc(100vh - 208px) !important;
 	overflow-y: auto;
 }
@@ -244,4 +242,78 @@ textarea{
 #bible_search_form{
 	width: 45% !important;
 	float: left !important;
+}
+.star-bible-contents .active{
+	color: green;
+	font-weight: 600;
+}
+.star-bible-contents p{
+	cursor: default;
+	padding: 5px;
+	margin: 0;
+}
+.star-bible-contents a{
+	float: right !important;
+	margin-right: 10px;
+}
+.star-bible-contents  .active a{
+	display: flex !important;
+}
+.bible-util-tab ul a{
+	font-weight: 600;
+}
+.bible-util-tab ul a:hover{
+	font-weight: 700;
+	transition: 0.3s;
+	text-decoration: none;
+}
+.bible-notebook-form .ck-content {
+	height: calc(100vh - 250px) !important;
+}
+.bible-notebook-form .btn {
+	bottom: 53px !important;
+	position: fixed;
+	z-index: 200;
+	right: 35px;
+}
+.bible-notebook-form{
+	overflow-x: hidden;
+}
+.bible-comment-form textarea{
+	height: 60px;
+}
+#star_bible_comments ul{
+	height: calc(100vh - 326px) !important;
+	overflow-y: hidden;
+}
+#star_bible_comments ul .btn-xs{
+	padding: 0px 6px !important;
+}
+#star_bible_comments ul .btn-xs .iconmoon{
+	font-size: 12px !important;
+}
+.message-box{
+	position: fixed;
+	min-width: 300px;
+	box-shadow: 0px 2px 3px #000;
+	bottom: 36px;
+	left: 15px;
+	background-color: #fff;
+	padding: 10px;
+	color: #000;
+	font-weight: 600;
+}
+.message-box a{
+	color: #333;
+	font-size: 30px;
+	line-height: 25px;
+}
+.message-box a:hover{
+	text-decoration: none;
+}
+.highlight{
+	background-color: yellow !important;
+}
+.bookmarked{
+	background-color: yellow !important;
 }

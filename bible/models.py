@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -89,3 +90,102 @@ class Bible(models.Model):
 			b_list.append(b)
 		return b_list
 
+
+class BibleHistory(models.Model):
+	bible_book		= models.CharField(max_length=50)
+	bible_chapter	= models.CharField(max_length=50)
+	user			= models.ForeignKey(User, on_delete=models.CASCADE)
+	created_at		= models.DateTimeField(auto_now=True)
+	updated_at		= models.DateTimeField(auto_now_add=True)
+
+	def save_model(form, request):
+		entry = BibleHistory()
+		entry.user = request.user
+		entry.bible_book = form.cleaned_data['bible_book']
+		entry.bible_chapter = form.cleaned_data['bible_chapter']
+		entry.save()
+		return True
+
+
+class BibleComment(models.Model):
+	verse_ref		= models.CharField(max_length=50)
+	comment			= models.TextField()
+	user			= models.ForeignKey(User, on_delete=models.CASCADE)
+	created_at		= models.DateTimeField(auto_now=True)
+	updated_at		= models.DateTimeField(auto_now_add=True)
+	
+	def save_model(form, request):
+		comment = BibleComment()
+		comment.user = request.user
+		comment.comment = form.cleaned_data['comment']
+		comment.verse_ref = form.cleaned_data['verse_ref']
+		comment.save()
+		return True
+
+	def update_model(form, request):
+		try:
+			comment = BibleComment.objects.get(id=request.POST["comment_id"])
+		except BibleComment.DoesNotExist:
+			return True
+		comment.comment = form.cleaned_data['comment_edit']
+		comment.save()
+		return True
+
+	def get_comments(verse_ref, request):
+		return BibleComment.objects.filter(
+				user= request.user,
+				verse_ref = verse_ref
+			)
+
+	def delete_comment(verse_ref, request):
+		try:
+			comment = BibleComment.objects.get(
+						id = request.POST["comment_id"]
+					);
+		except BibleComment.DoesNotExist:
+			return True	
+		comment.delete()
+		return True
+
+class BibleNotebook(models.Model):
+	notes			= models.TextField(null=True, blank=True)
+	user			= models.ForeignKey(User, on_delete=models.CASCADE)
+	created_at		= models.DateTimeField(auto_now=True)
+	updated_at		= models.DateTimeField(auto_now_add=True)
+
+	def save_model(form, request):
+		try:
+			notebook = BibleNotebook.objects.get(user=request.user)
+		except BibleNotebook.DoesNotExist:
+			notebook = BibleNotebook()
+			notebook.user = request.user		
+		notebook.notes = form.cleaned_data['notes']
+		notebook.save()
+		return True
+
+	def get_notes(request):
+		return BibleNotebook.objects.get(
+				user= request.user
+			)
+
+class BibleBookmark(models.Model):
+	key		= models.TextField(null=True, blank=True)
+	user	= models.ForeignKey(User, on_delete=models.CASCADE)
+
+	def process(request, key):
+		try:
+			notebook = BibleBookmark.objects.get(user=request.user, key=key)
+			notebook.delete()
+			return "removed"
+		except BibleBookmark.DoesNotExist:
+			notebook = BibleBookmark()
+			notebook.user = request.user		
+			notebook.key = key
+			notebook.save()
+			return "added"
+
+	def get_bookmarks(request, chapter):
+		return BibleBookmark.objects.filter(
+				user= request.user,
+				key__startswith= chapter
+			).values("key")

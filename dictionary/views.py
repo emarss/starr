@@ -51,9 +51,5 @@ def search_word(request):
 		return JsonResponse(context, status=200)
 	else:
 		context['result']  = "fail"
-		context['html'] = TemplateResponse(
-							request,
-							'includes/error_message.html',
-							{'error':"An error occured, I could not perfom your search. Please try again."}
-						).render().rendered_content
+		context['html'] = "An error occured, I could not perfom your search. Please try again."
 		return JsonResponse(context, status=200)

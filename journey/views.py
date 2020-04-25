@@ -29,11 +29,8 @@ def story(request):
 	if form.is_valid():
 		if(Journey.save_model(form, request)):
 			context['result']  = "success"
-			context['html'] = TemplateResponse(
-									request,
-									'includes/success_message.html',
-									{'message':"Your story has been kept so secretly"}
-								).render().rendered_content
+			context['html'] = "Your story has been kept so secretly"
+
 			context['new_story'] = TemplateResponse(
 									request,
 									'includes/story.html',
@@ -44,18 +41,10 @@ def story(request):
 			return JsonResponse(context, status=200)
 		else:
 			context['result']  = "fail"
-			context['html'] = TemplateResponse(
-									request,
-									'includes/error_message.html',
-									{'error':"Ohhh I am sorry, an error occured, I could not save your story. Please try again."}
-								).render().rendered_content
+			context['html'] = "Ohhh I am sorry, an error occured, I could not save your story. Please try again."
 	else:
 		context['result']  = "fail"
-		context['html'] = TemplateResponse(
-							request,
-							'includes/error_message.html',
-							{'error':form.errors}
-						).render().rendered_content
+		context['html'] = form.errors
 	return JsonResponse(context, status=200)
 
 @login_required
@@ -65,11 +54,7 @@ def update_story(request, id):
 	if form.is_valid():
 		if(Journey.update_model(form, request, id)):
 			context['result']  = "success"
-			context['html'] = TemplateResponse(
-									request,
-									'includes/success_message.html',
-									{'message':"Your story has been updated"}
-								).render().rendered_content
+			context['html'] = "Your story has been updated"
 			context['your_story'] = TemplateResponse(
 									request,
 									'includes/inner_story.html',
@@ -78,25 +63,16 @@ def update_story(request, id):
 			return JsonResponse(context, status=200)
 		else:
 			context['result']  = "fail"
-			context['html'] = TemplateResponse(
-									request,
-									'includes/error_message.html',
-									{'error':"Ohhh I am sorry, an error occured, I could not save your story. Please try again."}
-								).render().rendered_content
+			context['html'] = "Ohhh I am sorry, an error occured, I could not save your story. Please try again."
 	else:
 		context['result']  = "fail"
-		context['html'] = TemplateResponse(
-							request,
-							'includes/error_message.html',
-							{'error':form.errors}
-						).render().rendered_content
+		context['html'] = form.errors
 	return JsonResponse(context, status=200)
 
 @login_required
 def delete_story(request, id):
-	obj = Journey.objects.get(pk=id)
-	if(request.user == obj.user):
-		obj.delete()
+	context = {}
+	if(Journey.delete_model(request, id)):
 		context['result']  = "success"
 		request.session['message'] = "A story was successfully deleted."
 	else:

@@ -1,0 +1,8 @@
+<b>Recent Chapters</b>
+<ul class="list px-4 mt-2">
+	{% for entry in history %}
+		<li><a href="#" class="text-primary" onclick="viewChapter('{{ entry.bible_book }}', {{ entry.bible_chapter }})">{{ entry.bible_book }} {{ entry.bible_chapter }},</a> <small class="font-weight-bold text-dark">{{ entry.created_at }}</small></li>
+	{% empty %}
+		<li>History Empty</li>
+	{% endfor %}
+</ul>

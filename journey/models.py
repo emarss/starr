@@ -18,7 +18,18 @@ class Journey(models.Model):
 		return True
 
 	def update_model(form, request, id):
-		story = Journey.objects.get(pk=id)
+		try:
+			story = Journey.objects.get(id = id, user=request.user)
+		except Journey.DoesNotExist:
+			return True		
 		story.story = form.cleaned_data['story']
 		story.save()
+		return True
+
+	def delete_model(request, id):
+		try:
+			story = Journey.objects.get(id = id, user=request.user)
+		except Journey.DoesNotExist:
+			return True		
+		story.delete()
 		return True
