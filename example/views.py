@@ -17,8 +17,8 @@ def loginForm(request):
 	return render(request, 'login.html', context)
 
 def loginUser(request):
-	user = authenticate(request, 
-				username=request.POST['username'], 
+	user = authenticate(request,
+				username=request.POST['username'],
 				password=request.POST['password']
 			)
 	if user is not None:
